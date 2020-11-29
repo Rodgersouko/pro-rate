@@ -12,11 +12,13 @@ def index(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.save()
+            post.user = request.user.profile
     else:
         form = PostForm()
 
     try:
         posts = Post.objects.all()
+        print(posts)
     except Post.DoesNotExist:
         posts = None
     return render(request, 'index.html', {'posts': posts, 'form':form})
