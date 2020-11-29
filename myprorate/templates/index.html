@@ -24,6 +24,35 @@
                 </div>
             </div>
         </div>
+    </div> 
+    <div class="templates d-flex flex-row">
+        {% for post in posts %}
+        <div class="card mr-2">
+            <div class="view overlay">
+                <img class="card-img-top" src="{{ post.photo.url }}-/crop/1680x1180/center/-/quality/lightest/"
+                    alt="{{photo.title}}">
+                <a href="#!">
+                    <div class="mask rgba-white-slight"></div>
+                </a>
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">{{post.title|title}}</h4>
+                <p class="card-text">,<img src="{{post.user.profile.profile_picture.url}}" class="nav-img mr-2" alt="">
+                    By {{Profile.user.username|title}} <span style="float:right">{{post.date|date}}</span>
+                </p>
+                <a href="#" class="btn btn-primary">Button</a>
+    
+            </div>
+    
+        </div>
+        <!-- Card -->
+    
+        <img class="img-fluid" src="" alt="">
+    
+        {% endfor %}
+    </div>
+
+    
     </div>
     
     <!-- <form action="" method="post">
@@ -31,14 +60,26 @@
         {{ form|crispy }}
         <input type="submit" class="btn btn-sm btn-info" value="Save" />
     </form>
-     -->
+    
     {% if posts %}
     {% for post in posts %}
     <div class="col-md-4 mb-4">
-        <img class="img-fluid" src="{{ post.photo.cdn_url }}-/crop/600x600/center/-/quality/lightest/" alt=""></div>
+        <img class="img-fluid" src="{{ post.photo.cdn_url }}-/crop/600x600/center/-/quality/lightest/" alt="">
+        <a href="#!">
+            <div class="mask rgba-white-slight"></div>
+        </a>
+    </div>
+    <div class="card">
+        <h5 class="card-title">{{post.title|title}}</h5>
+        <hr>
+        <p class="card-text "><img src="{{post.user.profile.profile_picture.url}}" class="nav-img mr-2" alt="">
+            By {{post.user.username|title}} <span style="float:right">{{post.date|date}}</span>
+        </p>
+    <!-- </div>
     {% endfor %}
 
-    {% endif %}
+    {% endif %} 
+
     <!-- <a href="{% url 'logout' %}" class="btn btn-sm btn-info">Log Out</a> -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar bg-info">
         <div class="container" >
@@ -62,7 +103,8 @@
                     {% if user.is_authenticated%}
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">{{ user.username|title }}<img src="{{ user.profile.profile_picture.url }}" alt="">
+                            aria-haspopup="true" 
+                            aria-expanded="false">{{ user.username|title }}<img src="{{ user.profile.profile_picture.url }}" alt="">
                         </a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item text-center" href="{% url 'profile' user.username %}">Profile</a>
@@ -76,6 +118,28 @@
                     <li><a href="{% url 'login' %}" class="login btn btn-sm btn-info"> REGISTER/LOGIN </a></li>
                     {% endif %}
                     <li class="bg-info"><a href="" class="ml-3 bg-info" id="site"> Submit your site</a></li>
+                    </button>
+                    <div class="modal fade bd-example-modal-xl" id="ModalCenter" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="" method="post" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        {{ form|crispy }}
+                                        <input type="submit" class="btn btn-sm btn-info" value="Save" />
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </ul>
             </div>
         </div>

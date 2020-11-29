@@ -4,6 +4,7 @@ from django.contrib.auth import login, authenticate
 from rest_framework import viewsets
 from .models import Profile, Post
 from .serializers import ProfileSerializer
+from django.contrib.auth.models import User
 
 # Create your views here.
 def index(request):
@@ -48,3 +49,12 @@ class ProfileViewSet(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
     print(queryset)
     serializer_class = ProfileSerializer
+
+
+def project(request, post):
+    post = Post.objects.get(title=post)
+
+    params = {
+        'post': post
+    }
+    return render(request, 'project.html', params)
