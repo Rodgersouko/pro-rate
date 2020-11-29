@@ -1,25 +1,27 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
-<div class="container" style="margin-top:7%">
-    <h5 class="mb-4 mt-4">{{ post.title }} by {{ post.user.username }} from {{ post.user.profile.location }}</h5>
+    <div class="container" style="margin-top:5%">
+        <h5 class="mb-4 mt-4">{{ post.title }} by {{ post.user }} from {{ post.user.profile.location }} </h5>
 
-    <div class="card">
-        <div class="view overlay">
-            <img class="card-img-top" src="{{ post.photo.cdn_url }}-/crop/1680x760/center/-/quality/lightest/"
-                alt="{{photo.title}}">
-            <a href="">
-                <div class="mask rgba-white-slight"></div>
-            </a>
-        </div>
-        <div class="card-body">
-            <h6 class="card-title">{{post.title|title}} by {{post.user.username|title}}</h6>
-            <hr>
-            <p class="card-text "><img src="{{post.user.profile.profile_picture.url}}" class="nav-img mr-2" alt="">
-                By {{post.user.username|title}} <span style="float:right">{{post.date|date}}</span>
-            </p>
-        </div>
+        <div class="card">
+            <div class="view overlay">
+                <img class="card-img-top" src="{{ post.photo.cdn_url }}"
+                     alt="{{photo.title}}">
+                <a href="">
+                    <div class="mask rgba-white-slight"></div>
+                </a>
+            </div>
+            <div class="card-body">
+                <h6 class="card-title"> <strong>{{post.title|title}}</strong> by <strong>{{post.user.username|title}}</strong><a
+                        href="{{ post.url }}" style="float:right" class="btn btn-sm btn-info mr-4" > Visit </a></h6>
 
+                <p>{{ post.description }}</p>
+                <hr>
+                <p class="card-text "><img src="{{post.user.profile.profile_picture.url}}" class="nav-img mr-2" alt="">
+                    By {{post.user.username|title}} <span style="float:right">{{post.date|date}}</span>
+                </p>
+            </div>
+        </div>
     </div>
-</div>
 {% endblock %}

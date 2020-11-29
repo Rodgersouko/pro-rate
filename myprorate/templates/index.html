@@ -25,20 +25,23 @@
             </div>
         </div>
     </div> 
-    <div class="templates d-flex flex-row">
+    <div class="container" style="margin-top:5%;">
+        <h1 class="text-center hello">Posted Projects</h1>
+     
+    <div class="templates d-flex flex-row" style="margin-top:5%;">
         {% for post in posts %}
         <div class="card mr-2">
             <div class="view overlay">
                 <img class="card-img-top" src="{{ post.photo.url }}-/crop/1680x1180/center/-/quality/lightest/"
-                    alt="{{photo.title}}">
-                <a href="#!">
+                    alt="{{photo.title}}.click to view Project">
+                <a href="{% url 'project' post.title %}">
                     <div class="mask rgba-white-slight"></div>
                 </a>
             </div>
             <div class="card-body">
                 <h4 class="card-title">{{post.title|title}}</h4>
-                <p class="card-text">,<img src="{{post.user.profile.profile_picture.url}}" class="nav-img mr-2" alt="">
-                    By {{Profile.user.username|title}} <span style="float:right">{{post.date|date}}</span>
+                <p class="card-text"> ...............................................................<img src="{{post.user.profile.profile_picture.url}}" class="nav-img mr-2" alt="">
+                    By {{post.user}} <span style="float:right">{{post.date|date}}</span>
                 </p>
                 <a href="#" class="btn btn-primary">Button</a>
     
