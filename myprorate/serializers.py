@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
+from .models import Profile
 
 
 class CreateUserSerializer(serializers.ModelSerializer):
@@ -18,8 +19,7 @@ class CreateUserSerializer(serializers.ModelSerializer):
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
-        fields = ('id', 'username')
+        model = User_fields = ('id', 'username')
 
 
 class LoginUserSerializer(serializers.Serializer):
@@ -31,3 +31,9 @@ class LoginUserSerializer(serializers.Serializer):
         if user and user.is_active:
             return user
         raise serializers.ValidationError("Invalid Details.")
+
+
+class ProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Profile
+        fields = ['id', 'user', 'profile_picture','bio', 'name', 'location', 'contact']

@@ -48,8 +48,15 @@ INSTALLED_APPS = [
     'knox',
     'myprorate',
     'crispy_forms',
+    'pyuploadcare.dj',
+
 
 ]
+
+UPLOADCARE = {
+    'pub_key': '700326234',
+    'secret': '123456789',
+}
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [

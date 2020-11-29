@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from pyuploadcare.dj.models import ImageField
 
 # Create your models here.
 class Profile(models.Model):
@@ -16,7 +17,7 @@ class Profile(models.Model):
 
     def __str__(self):
         return f'{self.user.username} Profile'
-
+#***
     @receiver(post_save, sender=User)
     def create_user_profile(sender, instance, created, **kwargs):
         if created:
@@ -25,3 +26,11 @@ class Profile(models.Model):
     @receiver(post_save, sender=User)
     def save_user_profile(sender, instance, **kwargs):
         instance.profile.save()
+
+
+class Post(models.Model):
+    title = models.CharField(max_length=155)
+    url = models.CharField(max_length=255)
+    description = models.CharField(max_length=255)
+    technologies = models.CharField(max_length=200)
+    photo = ImageField()
