@@ -9,7 +9,7 @@ This application allows users to post their projects and get reviews from peers
 To get the project .......
 
 ## Cloning the repository:
-https://github.com/Rosgersouko/pro-rate.git 
+https://github.com/Rodgersouko/pro-rate.git 
 Navigate into the folder and install requirements
 cd pro-rate pip install -r requirements.txt 
 Install and activate Virtual
