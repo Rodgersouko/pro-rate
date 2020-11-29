@@ -6,7 +6,6 @@ from django.contrib.auth import login, authenticate
 def index(request):
     return render(request, 'index.html')
 
-    #return HttpResponse('Hello world')
 
 
 def signup(request):
