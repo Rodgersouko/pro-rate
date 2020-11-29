@@ -1,34 +1,40 @@
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar bg-info">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="background-color: gold;">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <form class="form-inline">
-                    <div class="md-form my-0">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                    </div>
-                </form>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">Dropdown
-                </a>
-                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </li>
-        </ul>
+<!-- <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar bg-info">
+    <div class="container" style="background-color: gold;">
+        <a class="navbar-brand" href="{% url 'index' %}"> <strong class="mr-4 brand"> Awwards</strong></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="background-color: goldenrod;">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <form class="form-inline">
+                        <div class="md-form my-0">
+                            <input class="form-control mr-sm-2 " type="text" placeholder="Search" aria-label="Search">
+                        </div>
+                    </form>
+                </li>
+            </ul>
+        
+            <ul class="navbar-nav navbar-right">
+                {% if user.is_authenticated%}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">{{ user.username|title }}
+                    </a>
+                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item text-center" href="#">Profile</a>
+                        <hr>
+                        <a href="{% url 'logout' %}" class="text-secondary text-center dropdown-item">Log Out</a>
+                      </div>
 
-        <ul class="navbar-nav navbar-right">
-            <li><a href="{% url 'login' %}"> REGISTER/LOGIN </a></li>
-            <li class="bg-info"><a href="" class="ml-3 bg-info "> Submit your site</a></li>
-        </ul>
+                </li>
 
+            {% else %}
+            <li><a href="{% url 'login' %}" class="login btn btn-sm btn-info"> REGISTER/LOGIN </a></li>
+            {% endif %}
+            <li class="bg-info"><a href="" class="ml-3 bg-info" id="site"> Submit your site</a></li>
+        </ul>
+        </div>
     </div>
-</nav>
+</nav> -->

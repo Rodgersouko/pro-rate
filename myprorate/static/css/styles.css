@@ -1,0 +1,16 @@
+#nbar{
+    background-color:gold;
+    color:black;
+}
+.login, #site{
+    text-decoration: none;
+    color:white;
+}
+
+.login:hover, #site:hover{
+    text-decoration: none;
+    color:white;
+}
+.brand{
+    font-weight: bolder;
+} 
