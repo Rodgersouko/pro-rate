@@ -36,7 +36,7 @@ SECRET_KEY = 'y08qj%!1mc)di($jv@d2+)5ma&gn&qiab*cubdpzxx&4e^*k4#'
 DEBUG = True
 #DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['prorate911.herokuapp.com','0.0.0.0']
 
 
 # Application definition
