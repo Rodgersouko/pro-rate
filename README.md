@@ -1,13 +1,14 @@
-pro-rate
+# pro-rate
 Rodgersouko
 
 # Description
+This application allows users to post their projects and get reviews from peers
 
 
 ## Setup and Installation
 To get the project .......
 
-# Cloning the repository:
+## Cloning the repository:
 https://github.com/Rosgersouko/pro-rate.git 
 Navigate into the folder and install requirements
 cd pro-rate pip install -r requirements.txt 
@@ -25,11 +26,11 @@ python manage.py migrate
 Run the application
 python manage.py runserver 
 
-# Testing the application
+## Testing the application
 python manage.py test 
 Open the application on your browser 127.0.0.1:8000.
 
-# Api Endpoints
+## Api Endpoints
 https://prorate911.herokuapp.com/api/users/
 https://prorate911.herokuapp.com/api/profile/
 https://prorate911.herokuapp.com/api/posts/
